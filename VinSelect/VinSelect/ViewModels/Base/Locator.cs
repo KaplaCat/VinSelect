@@ -2,8 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using VinSelect.Services.Database;
 using VinSelect.Services.Dialog;
 using VinSelect.Services.Navigation;
+using VinSelect.ViewModels.Connexion;
 
 namespace VinSelect.ViewModels.Base
 {
@@ -18,11 +20,15 @@ namespace VinSelect.ViewModels.Base
         {
             containerBuilder = new ContainerBuilder();
 
+            // Services
             containerBuilder.RegisterType<DialogService>().As<IDialogService>();
             containerBuilder.RegisterType<NavigationService>().As<INavigationService>();
+            containerBuilder.RegisterType<DatabaseService>().As<IDatabaseService>();
 
             containerBuilder.RegisterType<MainViewModel>();
 
+            // Connexion page
+            containerBuilder.RegisterType<ConnexionViewModel>();
 
         }
 

@@ -4,6 +4,8 @@ using System.Text;
 using System.Threading.Tasks;
 using VinSelect.ViewModels;
 using VinSelect.ViewModels.Base;
+using VinSelect.ViewModels.Connexion;
+using VinSelect.Views.Connexion;
 using Xamarin.Forms;
 
 namespace VinSelect.Services.Navigation
@@ -108,6 +110,7 @@ namespace VinSelect.Services.Navigation
         void CreatePageViewModelMappings()
         {
             mappings.Add(typeof(MainViewModel), typeof(MainPage));
+            mappings.Add(typeof(ConnexionViewModel), typeof(ConnexionView));
 
         }
     }
