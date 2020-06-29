@@ -2,15 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace VinSelect.Services.Database
 {
-    public class DatabaseService : IDatabaseService
+    public partial class DatabaseService : IDatabaseService
     {
-        public void DeleteUser(string id)
+        public void DeleteWine(string id)
         {
-            var client = new RestClient("https://account-b600.restdb.io/rest/users/"+id);
+            var client = new RestClient("https://account-b600.restdb.io/rest/users/" + id);
             var request = new RestRequest(Method.DELETE);
             request.AddHeader("cache-control", "no-cache");
             request.AddHeader("x-apikey", "94215d810a67857c7e21c1be383a09a6ee99f");
@@ -18,9 +17,9 @@ namespace VinSelect.Services.Database
             IRestResponse response = client.Execute(request);
         }
 
-        public IRestResponse GetAllUsers()
+        public IRestResponse GetAllWine()
         {
-            var client = new RestClient("https://account-b600.restdb.io/rest/users");
+            var client = new RestClient("https://account-b600.restdb.io/rest/wines");
             var request = new RestRequest(Method.GET);
             request.AddHeader("cache-control", "no-cache");
             request.AddHeader("x-apikey", "94215d810a67857c7e21c1be383a09a6ee99f");
@@ -28,9 +27,9 @@ namespace VinSelect.Services.Database
             return client.Execute(request);
         }
 
-        public void PostNewUser(string json)
+        public void PostNewWine(string json)
         {
-            var client = new RestClient("https://account-b600.restdb.io/rest/users");
+            var client = new RestClient("https://account-b600.restdb.io/rest/wines");
             var request = new RestRequest(Method.POST);
             request.AddHeader("cache-control", "no-cache");
             request.AddHeader("x-apikey", "94215d810a67857c7e21c1be383a09a6ee99f");
@@ -39,9 +38,9 @@ namespace VinSelect.Services.Database
             IRestResponse response = client.Execute(request);
         }
 
-        public void UpdateUser(string id, string field)
+        public void UpdateWine(string id, string field)
         {
-            var client = new RestClient("https://account-b600.restdb.io/rest/users/"+id);
+            var client = new RestClient("https://account-b600.restdb.io/rest/wines/" + id);
             var request = new RestRequest(Method.PUT);
             request.AddHeader("cache-control", "no-cache");
             request.AddHeader("x-apikey", "94215d810a67857c7e21c1be383a09a6ee99f");

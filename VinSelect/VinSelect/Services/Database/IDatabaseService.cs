@@ -12,5 +12,10 @@ namespace VinSelect.Services.Database
         void PostNewUser(string json);
         void UpdateUser(string id, string field);
         void DeleteUser(string id);
+
+        void DeleteWine(string id);
+        IRestResponse GetAllWine();
+        void PostNewWine(string json);
+        void UpdateWine(string id, string field);
     }
 }
